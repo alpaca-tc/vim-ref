@@ -672,6 +672,8 @@ function! s:open_source(source, query, open_cmd)
 
   call s:sources[b:ref_source].opened(a:query)
 
+  doautocmd User ref-after
+  execute 'doautocmd User' 'ref-after' . a:source
   setlocal nomodifiable readonly
 endfunction
 
